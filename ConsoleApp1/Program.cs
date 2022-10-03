@@ -20,9 +20,9 @@ namespace ConsoleApp1
         {
             word = word.ToLower();
             char[] chars = word.ToCharArray();
-            for(int i = 0; i < chars.Length-2; i++)
+            for(int i = 0; i < chars.Length; i++)
             {
-                for(int c = i+1; c<chars.Length-1; c++)
+                for(int c = i+1; c<chars.Length; c++)
                 {
                   if(chars[i] == chars[c])
                   {
