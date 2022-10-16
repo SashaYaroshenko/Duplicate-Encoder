@@ -18,26 +18,35 @@ namespace ConsoleApp1
     {
         public static string DuplicateEncode(string word)
         {
+            string res = "";
             word = word.ToLower();
             char[] chars = word.ToCharArray();
             for(int i = 0; i < chars.Length; i++)
             {
+                bool flag = true;
                 for(int c = i+1; c<chars.Length; c++)
                 {
                   if(chars[i] == chars[c])
                   {
-                      word =  word.Replace(chars[c], ')') ;
-                        break;
+                        flag = false;
+                        res += ")";
+                      
                   }
                 }
-            }
-            foreach(char c in word)
-            {
-                if(c!=')')
+                if(flag==true)
                 {
-                  word =  word.Replace(c, '(');
+                    res += chars[i];
                 }
             }
+            chars = res.ToCharArray();
+            for(int i = 0; i < chars.Length; i++)
+            {
+                if (chars[i]!=')')
+                {
+                    chars[i] = '(';
+                }
+            }
+             word = new string(chars);
             return word;
         }
     }
